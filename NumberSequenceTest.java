@@ -26,5 +26,50 @@ class NumberSequenceTest
         out.println();
 
         // add code here
+
+        // Test basic properties
+        out.println("length: " + sequence.length());
+        out.println("one upper bound: " + sequence.upperBound());
+        out.println("one lower bound: " + sequence.lowerBound());
+        out.println();
+
+        // Test access and search
+        out.println("number at position 3: " + sequence.numberAt(3));
+        out.println("position of 8.0: " + sequence.positionOf(8.0));
+        out.println();
+
+        // Test monotonicity and containment
+        out.println("is increasing: " + sequence.isIncreasing());
+        out.println("is decreasing: " + sequence.isDecreasing());
+        out.println("contains 16.0: " + sequence.contains(16.0));
+        out.println();
+
+        // Test modification methods
+        out.println("add 32.0:");
+        sequence.add(32.0);
+        out.println(sequence);
+
+        out.println("insert 0.0 at position 7:");
+        sequence.insert(7, 0.0);
+        out.println(sequence);
+
+        out.println("remove at position 7:");
+        try {
+            sequence.removeAt(7);
+        } catch (IndexOutOfBoundsException e) {
+            out.println("Error: " + e.getMessage());
+        } catch (IllegalStateException e) {
+            out.println("Error: " + e.getMessage());
+        }
+        out.println(sequence);
+        out.println();
+
+        // Test asArray()
+        out.println("corresponding array:");
+        double[] array = sequence.asArray();
+        for (double d : array) {
+            out.print(d + " ");
+        }
+        out.println();
     }
 }
